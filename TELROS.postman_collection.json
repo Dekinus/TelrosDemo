@@ -1,0 +1,813 @@
+{
+	"info": {
+		"_postman_id": "7e3fc536-2254-44c0-b7ec-872eb74ed531",
+		"name": "TELROS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17572858"
+	},
+	"item": [
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkZvclJlYWwiLCJpYXQiOjE3MzkxMTE5MDYsImV4cCI6MTczOTExMzM0Nn0.BqpUPcUF0pUL0iH-MBoOR1SOHWhoB7gzjhceDoRtSaY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"surname\": \"Test\",\r\n    \"patronymic\": \"TEST\",\r\n    \"dateOfBirth\": \"2020-08-21\",\r\n    \"phoneNumber\": \"+79271723175\",\r\n    \"email\": \"test@mail.test\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload User Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbk1haWwiLCJpYXQiOjE3MzkxMTcwMjUsImV4cCI6MTczOTExODQ2NX0.qIKe6ybbEi_njoxsJtWWswwxcNQFpQ0-h0y_fBaw_X0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Dekinus/Desktop/pics/2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/e56b01a3-198b-4e7e-b25a-e1949f0424c3/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"e56b01a3-198b-4e7e-b25a-e1949f0424c3",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkZvclJlYWwiLCJpYXQiOjE3MzkxMTIwNjksImV4cCI6MTczOTExMzUwOX0.b3yomsq9a7rE12-bAbrDiwv-ETl-dtQIkdV5BE0yhIw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"1\",\r\n    \"surname\": \"2\",\r\n    \"patronymic\": \"3\",\r\n    \"phoneNumber\": \"+78005523535\",\r\n    \"dateOfBirth\": \"2020-08-21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/update/004b4d8c-dea9-49ae-832a-a2816e892575",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update",
+								"004b4d8c-dea9-49ae-832a-a2816e892575"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkZvclJlYWwiLCJpYXQiOjE3MzkxMTIyMDAsImV4cCI6MTczOTExMzY0MH0.xO0jQU-JKvPaVnCu3TLChxejm1kjPu4gV1r2NGcDW8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Dekinus/Desktop/pics/1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/004b4d8c-dea9-49ae-832a-a2816e892575/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"004b4d8c-dea9-49ae-832a-a2816e892575",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkZvclJlYWwiLCJpYXQiOjE3MzkxMTQ3NjMsImV4cCI6MTczOTExNjIwM30.VEMv_tnWTc8mZUTUMmfqxCHGw1OUB7vdgDmOakvYuYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/users/delete/7ce55148-88bc-45fb-8db8-ee23365c9a75",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"delete",
+								"7ce55148-88bc-45fb-8db8-ee23365c9a75"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkZvclJlYWwiLCJpYXQiOjE3MzkxMTIyMDAsImV4cCI6MTczOTExMzY0MH0.xO0jQU-JKvPaVnCu3TLChxejm1kjPu4gV1r2NGcDW8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Dekinus/Desktop/pics/3.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/004b4d8c-dea9-49ae-832a-a2816e892575/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"004b4d8c-dea9-49ae-832a-a2816e892575",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "Update Self",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTczOTExMDI1MiwiZXhwIjoxNzM5MTExNjkyfQ.TGWafY3th1RjHlVwE6hfDhozcZChOlwOZv4EiE1MRjk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"NewAdminName\",\r\n    \"surname\": \"NewAdminSurname\",\r\n    \"patronymic\": \"sad\",\r\n    \"phoneNumber\": \"+79271717295\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Self Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbk1haWwiLCJpYXQiOjE3MzkxMTY1NzgsImV4cCI6MTczOTExODAxOH0.0U4ioLEk1LbqY4bLZ7Ua4KchYjWZoRTZuiOw76Ac2Rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Dekinus/Desktop/pics/2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Self",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkZvclJlYWwiLCJpYXQiOjE3MzkxMTIyMDAsImV4cCI6MTczOTExMzY0MH0.xO0jQU-JKvPaVnCu3TLChxejm1kjPu4gV1r2NGcDW8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/users/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Self Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbk1haWwiLCJpYXQiOjE3MzkxMTY1NzgsImV4cCI6MTczOTExODAxOH0.0U4ioLEk1LbqY4bLZ7Ua4KchYjWZoRTZuiOw76Ac2Rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Dekinus/Desktop/pics/3.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Self Image ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbk1haWwiLCJpYXQiOjE3MzkxMTY1NzgsImV4cCI6MTczOTExODAxOH0.0U4ioLEk1LbqY4bLZ7Ua4KchYjWZoRTZuiOw76Ac2Rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Self contact info ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTczOTExMDYxMiwiZXhwIjoxNzM5MTEyMDUyfQ.-juGQ259Van2oYQnORDwPS0Lvh3xV6X5ZJHxif_kiEI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/contact-info",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"contact-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Self",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbk1haWwiLCJpYXQiOjE3MzkxMTY1NzgsImV4cCI6MTczOTExODAxOH0.0U4ioLEk1LbqY4bLZ7Ua4KchYjWZoRTZuiOw76Ac2Rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image to self",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbk1haWwiLCJpYXQiOjE3MzkxMTY1NzgsImV4cCI6MTczOTExODAxOH0.0U4ioLEk1LbqY4bLZ7Ua4KchYjWZoRTZuiOw76Ac2Rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Dekinus/Desktop/pics/3.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Everyone",
+			"item": [
+				{
+					"name": "Get User contact info by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eUBtYWlsLnJ1IiwiaWF0IjoxNzM5MDk3MjM0LCJleHAiOjE3MzkwOTg2NzR9.F0cUAKwKIsRaQBC2PkSj14jinRyt5saS5NySx1VQiW8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/contact-info/76c5ae94-41f8-4433-9ca7-55c4d8e32a2c",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"contact-info",
+								"76c5ae94-41f8-4433-9ca7-55c4d8e32a2c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbk1haWwiLCJpYXQiOjE3MzkxMTY1NzgsImV4cCI6MTczOTExODAxOH0.0U4ioLEk1LbqY4bLZ7Ua4KchYjWZoRTZuiOw76Ac2Rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/users/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/13ed4622-9bc6-4792-af83-ceb9e0e33577/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"13ed4622-9bc6-4792-af83-ceb9e0e33577",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTczOTEwNzA3NSwiZXhwIjoxNzM5MTA4NTE1fQ.3FeH9RMZAJRvgvFefPd6peQmRolblhN3cD7DigEmcyU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/76c5ae94-41f8-4433-9ca7-55c4d8e32a2c",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"76c5ae94-41f8-4433-9ca7-55c4d8e32a2c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"adminName\",\r\n    \"surname\": \"adminSurname\",\r\n    \"patronymic\": \"Test\",\r\n    \"dateOfBirth\": \"2020-08-21\",\r\n    \"phoneNumber\": \"+79271723175\",\r\n    \"email\": \"adminMail\", \r\n    \"image\": null,\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin\", \r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/auth/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
