@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1_create_table_users" author="k.kvashnin" runAlways="false" runOnChange="true">
+        <comment>Создание таблицы users</comment>
+        <sqlFile path="sql/1_create_table_users.sql" relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+        <rollback>
+            <sqlFile path="sql/rollback/1_drop_table_users.sql" relativeToChangelogFile="true"
+                     splitStatements="true"
+                     stripComments="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2_fill_data" author="k.kvashnin" runAlways="false" runOnChange="true">
+        <comment>Наполнение таблицы users для проверки приложения</comment>
+        <sqlFile path="sql/2_fill_data.sql" relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+        <rollback>
+            <sqlFile path="sql/rollback/2_delete_data.sql" relativeToChangelogFile="true"
+                     splitStatements="true"
+                     stripComments="true"/>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: demo
+    env_file: .env
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:54320/telros
+    username: user
+    password: password
+    testWhileIdle: 'true'
+    validationQuery: SELECT 1
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: db/changelog/db-changelog-master.xml
+
+minio:
+  bucket: images
+  url: http://127.0.0.1:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+#  bucket: ${MINIO_BUCKET}
+#  url: ${MINIO_URL}
+#  accessKey: ${MINIO_ACCESS_KEY}
+#  secretKey: ${MINIO_SECRET_KEY}
