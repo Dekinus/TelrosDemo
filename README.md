@@ -1,4 +1,4 @@
-# TelrosDemo
+# Demo
 
 Для запуска проекта в докере сперва нужно собрать проект (Maven package), затем прописать в консоли docker build, затем docker-compose up\
 В корневой папке проекта есть файл для Postman (TELROS.postman_collection.json), в нём написаны все энпоинты для тестирования

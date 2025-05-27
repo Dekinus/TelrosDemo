@@ -4,10 +4,12 @@ import com.example.demo.exception.DataNotFoundException;
 import com.example.demo.exception.ImageDownloadException;
 import com.example.demo.exception.ImageUploadException;
 import com.example.demo.exception.RegistrationException;
+import com.example.demo.mapper.ImageMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.dto.request.CreateUserRequest;
 import com.example.demo.model.dto.request.UpdateUserContactInfoRequest;
 import com.example.demo.model.dto.request.UpdateUserRequest;
+import com.example.demo.model.dto.request.UserImageRequest;
 import com.example.demo.model.dto.response.SimpleMessageResponse;
 import com.example.demo.model.dto.response.UserContactInfoResponse;
 import com.example.demo.model.dto.response.UserInfoResponse;
@@ -34,6 +36,7 @@ public class UserService {
     private final UserMapper userMapper;
     private final ImageService imageService;
     private final PasswordEncoder passwordEncoder;
+    private final ImageMapper imageMapper;
 
     @Transactional
     public SimpleMessageResponse createUser(CreateUserRequest createUserRequest) {
@@ -122,7 +125,8 @@ public class UserService {
     }
 
     @Transactional
-    public SimpleMessageResponse uploadImage(UUID id, UserImage image) {
+    public SimpleMessageResponse uploadImage(UUID id, UserImageRequest imageRequest) {
+        UserImage image = imageMapper.toEntity(imageRequest);
         User user = userRepository.findById(id).orElseThrow(() -> new DataNotFoundException("User with UUID " + id + " was not found"));
         if (user.getImage() == null) {
             String fileName = imageService.uploadImage(image);
@@ -142,7 +146,8 @@ public class UserService {
     }
 
     @Transactional
-    public SimpleMessageResponse updateImage(UUID id, UserImage image) {
+    public SimpleMessageResponse updateImage(UUID id, UserImageRequest imageRequest) {
+        UserImage image = imageMapper.toEntity(imageRequest);
         User user = userRepository.findById(id).orElseThrow(() -> new DataNotFoundException("User with UUID " + id + " was not found"));
         if (user.getImage() == null) {
             throw new ImageUploadException("User has no image. Use upload image.");

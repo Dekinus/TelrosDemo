@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.mapper.ImageMapper;
 import com.example.demo.model.dto.request.CreateUserRequest;
 import com.example.demo.model.dto.request.UpdateUserContactInfoRequest;
 import com.example.demo.model.dto.request.UpdateUserRequest;
@@ -9,7 +8,6 @@ import com.example.demo.model.dto.response.SimpleMessageResponse;
 import com.example.demo.model.dto.response.UserContactInfoResponse;
 import com.example.demo.model.dto.response.UserInfoResponse;
 import com.example.demo.model.entity.User;
-import com.example.demo.model.entity.UserImage;
 import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +35,7 @@ import java.util.UUID;
 public class UserController {
 
     private final UserService userService;
-    private final ImageMapper imageMapper;
+
 
     @PreAuthorize("hasAuthority('CAN_CREATE')")
     @PostMapping("create")
@@ -110,16 +108,14 @@ public class UserController {
 
     @PostMapping("image") // create for self
     public ResponseEntity<SimpleMessageResponse> uploadImage(@Validated @ModelAttribute UserImageRequest imageRequest) {
-        UserImage image = imageMapper.toEntity(imageRequest);
         UUID id = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
-        return ResponseEntity.ok(userService.uploadImage(id, image));
+        return ResponseEntity.ok(userService.uploadImage(id, imageRequest));
     }
 
     @PreAuthorize("hasAuthority('CAN_CREATE')")
     @PostMapping("{id}/image") // create by admin
     public ResponseEntity<SimpleMessageResponse> uploadImage(@PathVariable UUID id, @Validated @ModelAttribute UserImageRequest imageRequest) {
-        UserImage image = imageMapper.toEntity(imageRequest);
-        return ResponseEntity.ok(userService.uploadImage(id, image));
+        return ResponseEntity.ok(userService.uploadImage(id, imageRequest));
     }
 
 
@@ -136,17 +132,15 @@ public class UserController {
 
     @PatchMapping("image") //update self
     public ResponseEntity<SimpleMessageResponse> updateImage(@Validated @ModelAttribute UserImageRequest imageRequest) {
-        UserImage image = imageMapper.toEntity(imageRequest);
         UUID id = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
 
-        return ResponseEntity.ok(userService.updateImage(id, image));
+        return ResponseEntity.ok(userService.updateImage(id, imageRequest));
     }
 
     @PreAuthorize("hasAuthority('CAN_UPDATE')")
     @PatchMapping("{id}/image") //update by admin
     public ResponseEntity<SimpleMessageResponse> updateImage(@PathVariable UUID id, @Validated @ModelAttribute UserImageRequest imageRequest) {
-        UserImage image = imageMapper.toEntity(imageRequest);
-        return ResponseEntity.ok(userService.updateImage(id, image));
+        return ResponseEntity.ok(userService.updateImage(id, imageRequest));
     }
 
     @PreAuthorize("hasAuthority('CAN_DELETE')")
